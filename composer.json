@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Middleware\\": "src/"
+            "Middleware\\": "src/Middleware"
         }
     }
 }
