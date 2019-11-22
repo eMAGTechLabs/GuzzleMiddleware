@@ -1,0 +1,14 @@
+{
+    "name": "alexandru.petcu/statsdprofiling",
+    "description": "Guzzle middleware for statsd",
+    "require": {
+        "guzzlehttp/guzzle": "^6.4",
+        "liuggio/statsd-php-client": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Alexandru Petcu",
+            "email": "alexandru.petcu@emag.ro"
+        }
+    ]
+}
