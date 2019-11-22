@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23b6eea92c11cb25521a336c01cfda59",
+    "content-hash": "b4d9a1536fb0d19095b8dcf1968f86e9",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -333,7 +333,9 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2019-03-08T08:55:37+00:00"
-        },
+        }
+    ],
+    "packages-dev": [
         {
             "name": "roave/security-advisories",
             "version": "dev-master",
@@ -553,7 +555,6 @@
             "time": "2019-11-19T14:18:57+00:00"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {

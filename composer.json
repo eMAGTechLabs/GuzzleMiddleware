@@ -3,7 +3,6 @@
     "description": "Guzzle middleware for statsd",
     "version": "0.1",
     "require": {
-        "roave/security-advisories": "dev-master",
         "guzzlehttp/guzzle": "^6.4",
         "liuggio/statsd-php-client": "^1.0"
     },
