@@ -10,7 +10,7 @@
     "require-dev": {
         "roave/security-advisories": "dev-master"
     },
-    "license": "GPL",
+    "license": "GPL-3.0-only",
     "authors": [
         {
             "name": "Alexandru Petcu",
