@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace Middleware;
 
 use GuzzleHttp\TransferStats;
 use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
