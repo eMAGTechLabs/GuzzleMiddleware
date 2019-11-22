@@ -1,14 +1,25 @@
 {
     "name": "alexandru.petcu/statsdprofiling",
     "description": "Guzzle middleware for statsd",
+    "version": "0.1",
     "require": {
+        "roave/security-advisories": "dev-master",
         "guzzlehttp/guzzle": "^6.4",
         "liuggio/statsd-php-client": "^1.0"
     },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
+    "license": "GPL",
     "authors": [
         {
             "name": "Alexandru Petcu",
             "email": "alexandru.petcu@emag.ro"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+            "Middleware\\": "src/"
+        }
+    }
 }
