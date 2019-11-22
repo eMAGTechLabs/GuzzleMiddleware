@@ -1,7 +1,7 @@
 {
     "name": "alexandru.petcu/statsdprofiling",
     "description": "Guzzle middleware for statsd",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "require": {
         "guzzlehttp/guzzle": "^6.4",
         "liuggio/statsd-php-client": "^1.0"
