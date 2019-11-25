@@ -1,6 +1,6 @@
 <?php
 
-namespace EmagTechLabs\Middleware;
+namespace EmagTechLabs\GuzzleMiddleware;
 
 use GuzzleHttp\TransferStats;
 use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
