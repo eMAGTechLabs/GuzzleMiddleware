@@ -1,16 +1,17 @@
 <?php
 
-namespace Middleware;
+namespace eMAGTechLabs\Middleware;
 
 use GuzzleHttp\TransferStats;
 use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 
-class StatsdProfiler
+class TimingProfiler
 {
     /** @var StatsdDataFactoryInterface */
     private $statsdService;
 
+    /** @var string */
     private $statsdKey;
 
     public function __construct(StatsdDataFactoryInterface $statsdService)
@@ -43,6 +44,11 @@ class StatsdProfiler
 
     private function generateKey(TransferStats $stats): string
     {
-        return $this->statsdKey ?? $stats->getEffectiveUri();
+        $urlHost = str_replace('.', '_', parse_url($stats->getEffectiveUri(), PHP_URL_HOST));
+        $urlPath = parse_url($stats->getEffectiveUri(), PHP_URL_PATH);
+
+        $parsedUrl = $urlHost . '_' . $urlPath;
+
+        return ($this->statsdKey ?? $parsedUrl);
     }
 }
