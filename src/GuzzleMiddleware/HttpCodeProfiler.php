@@ -38,17 +38,27 @@ class HttpCodeProfiler
 
     private function startProfiling(TransferStats $stats): void
     {
-        $this->statsdService->increment($this->generateKey($stats) . '.' . $stats->getResponse()->getStatusCode());
+        $this->statsdService->increment($this->generateKey($stats));
         $this->statsdService->flush();
     }
 
     private function generateKey(TransferStats $stats): string
     {
-        $urlHost = str_replace('.', '_', parse_url($stats->getEffectiveUri(), PHP_URL_HOST));
-        $urlPath = parse_url($stats->getEffectiveUri(), PHP_URL_PATH);
+        $host = parse_url($stats->getEffectiveUri(), PHP_URL_HOST);
+        if ($host !== null) {
+            $urlHost = str_replace('.', '_', $host);
+        }
 
-        $parsedUrl = $urlHost . '_' . $urlPath;
+        $urlPath = str_replace('.', '_', parse_url($stats->getEffectiveUri(), PHP_URL_PATH));
 
-        return ($this->statsdKey ?? $parsedUrl);
+        $parsedUrl = $urlPath;
+        if (isset($urlHost)) {
+            $parsedUrl = $urlHost . '_' . $urlPath;
+        }
+
+        $key = ($this->statsdKey ?? $parsedUrl);
+        $key .= '.' . $stats->getResponse()->getStatusCode();
+
+        return $key;
     }
 }
