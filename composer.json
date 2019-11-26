@@ -1,0 +1,22 @@
+{
+    "name": "alexandru.petcu/statsdprofiling",
+    "description": "Guzzle middlewares",
+    "version": "0.2.2",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Alexandru Petcu",
+            "email": "alexandru.petcu@emag.ro"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.4",
+        "liuggio/statsd-php-client": "^1.0",
+        "phpunit/phpunit": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "EmagTechLabs\\GuzzleMiddleware\\": "src/GuzzleMiddleware"
+        }
+    }
+}
