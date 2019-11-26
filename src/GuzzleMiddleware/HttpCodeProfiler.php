@@ -3,11 +3,15 @@
 namespace EmagTechLabs\GuzzleMiddleware;
 
 use GuzzleHttp\TransferStats;
-use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
 use Psr\Http\Message\RequestInterface;
+use EmagTechLabs\GuzzleMiddleware\Helper\ProfilerHelper;
+use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
+
 
 class HttpCodeProfiler
 {
+    use ProfilerHelper;
+
     /** @var StatsdDataFactoryInterface */
     private $statsdService;
 
@@ -38,25 +42,13 @@ class HttpCodeProfiler
 
     private function startProfiling(TransferStats $stats): void
     {
-        $this->statsdService->increment($this->generateKey($stats));
+        $this->statsdService->increment($this->getKey($stats));
         $this->statsdService->flush();
     }
 
-    private function generateKey(TransferStats $stats): string
+    private function getKey(TransferStats $stats): string
     {
-        $host = parse_url($stats->getEffectiveUri(), PHP_URL_HOST);
-        if ($host !== null) {
-            $urlHost = str_replace('.', '_', $host);
-        }
-
-        $urlPath = str_replace('.', '_', parse_url($stats->getEffectiveUri(), PHP_URL_PATH));
-
-        $parsedUrl = $urlPath;
-        if (isset($urlHost)) {
-            $parsedUrl = $urlHost . '_' . $urlPath;
-        }
-
-        $key = ($this->statsdKey ?? $parsedUrl);
+        $key = ($this->statsdKey ?? $this->generateKey($stats));
         $key .= '.' . $stats->getResponse()->getStatusCode();
 
         return $key;

@@ -2,12 +2,16 @@
 
 namespace EmagTechLabs\GuzzleMiddleware;
 
+
 use GuzzleHttp\TransferStats;
-use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
 use Psr\Http\Message\RequestInterface;
+use EmagTechLabs\GuzzleMiddleware\Helper\ProfilerHelper;
+use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
 
 class TimingProfiler
 {
+    use ProfilerHelper;
+
     /** @var StatsdDataFactoryInterface */
     private $statsdService;
 
@@ -36,26 +40,14 @@ class TimingProfiler
         $this->statsdKey = $key;
     }
 
-    public function generateKey(TransferStats $stats): string
+    public function getKey(TransferStats $stats): string
     {
-        $host = parse_url($stats->getEffectiveUri(), PHP_URL_HOST);
-        if($host !== null) {
-            $urlHost = str_replace('.', '_', $host);
-        }
-
-        $urlPath = str_replace('.', '_', parse_url($stats->getEffectiveUri(), PHP_URL_PATH));
-
-        $parsedUrl = $urlPath;
-        if(isset($urlHost)) {
-            $parsedUrl = $urlHost . '_' . $urlPath;
-        }
-
-        return ($this->statsdKey ?? $parsedUrl);
+        return ($this->statsdKey ?? $this->getKey($stats));
     }
 
     private function startProfiling(TransferStats $stats): void
     {
-        $this->statsdService->timing($this->generateKey($stats), $stats->getTransferTime());
+        $this->statsdService->timing($this->getKey($stats), $stats->getTransferTime());
         $this->statsdService->flush();
     }
 }
