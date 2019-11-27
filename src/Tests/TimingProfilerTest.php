@@ -36,5 +36,4 @@ class TimingProfilerTest extends TestCase
             $this->assertEquals($exception->getMessage(), 'www_gsp_ro/asdf');
         }
     }
-
 }

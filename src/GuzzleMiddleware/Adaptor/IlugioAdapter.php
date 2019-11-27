@@ -43,5 +43,4 @@ class IlugioAdapter implements StatsDataInterface
         $this->illugioService->decrement($key);
         $this->illugioService->flush();
     }
-
 }
