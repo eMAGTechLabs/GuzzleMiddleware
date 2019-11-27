@@ -1,10 +1,10 @@
 <?php
 
-namespace EmagTechLabs\GuzzleMiddleware\Adaptor;
+namespace EmagTechLabs\GuzzleMiddleware\Adapter;
 
 use Domnikl\Statsd\Client;
 
-class DominikAdaptor implements StatsDataInterface
+class DominikAdapter implements StatsDataInterface
 {
     /** @var Client */
     private $statsdClient;

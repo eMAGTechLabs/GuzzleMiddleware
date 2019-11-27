@@ -5,7 +5,7 @@ namespace EmagTechLabs\GuzzleMiddleware;
 use GuzzleHttp\TransferStats;
 use Psr\Http\Message\RequestInterface;
 use EmagTechLabs\GuzzleMiddleware\Helper\ProfilerHelper;
-use EmagTechLabs\GuzzleMiddleware\Adaptor\StatsDataInterface;
+use EmagTechLabs\GuzzleMiddleware\Adapter\StatsDataInterface;
 
 
 class HttpCodeProfiler

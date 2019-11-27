@@ -2,7 +2,7 @@
 namespace EmagTechLabs\Tests;
 
 
-use EmagTechLabs\GuzzleMiddleware\Adaptor\StatsDataInterface;
+use EmagTechLabs\GuzzleMiddleware\Adapter\StatsDataInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;

@@ -1,6 +1,6 @@
 <?php
 
-namespace EmagTechLabs\GuzzleMiddleware\Adaptor;
+namespace EmagTechLabs\GuzzleMiddleware\Adapter;
 
 use Liuggio\StatsdClient\Service\StatsdService;
 
