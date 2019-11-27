@@ -2,23 +2,22 @@
 
 namespace EmagTechLabs\GuzzleMiddleware;
 
-
 use GuzzleHttp\TransferStats;
 use Psr\Http\Message\RequestInterface;
 use EmagTechLabs\GuzzleMiddleware\Helper\ProfilerHelper;
-use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
+use EmagTechLabs\GuzzleMiddleware\Adapter\StatsDataInterface;
 
 class TimingProfiler
 {
     use ProfilerHelper;
 
-    /** @var StatsdDataFactoryInterface */
+    /** @var StatsDataInterface */
     private $statsdService;
 
     /** @var string */
     private $statsdKey;
 
-    public function __construct(StatsdDataFactoryInterface $statsdService)
+    public function __construct(StatsDataInterface $statsdService)
     {
         $this->statsdService = $statsdService;
     }
@@ -48,6 +47,5 @@ class TimingProfiler
     private function startProfiling(TransferStats $stats): void
     {
         $this->statsdService->timing($this->getKey($stats), $stats->getTransferTime());
-        $this->statsdService->flush();
     }
 }

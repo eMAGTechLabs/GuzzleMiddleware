@@ -2,14 +2,12 @@
 namespace EmagTechLabs\Tests;
 
 
+use EmagTechLabs\GuzzleMiddleware\Adapter\StatsDataInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\TransferStats;
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Handler\MockHandler;
-use Liuggio\StatsdClient\Service\StatsdService;
 use EmagTechLabs\GuzzleMiddleware\TimingProfiler;
 
 
@@ -18,7 +16,7 @@ class TimingProfilerTest extends TestCase
 
     public function testGeneratedKey(): void
     {
-        $statsdService = $this->getMockBuilder(StatsdService::class)->disableOriginalConstructor()->getMock();
+        $statsdService = $this->getMockBuilder(StatsDataInterface::class)->disableOriginalConstructor()->getMock();
         $statsdService->method('timing')->will(
             $this->returnCallback(function($arg) {
                 throw new \Exception($arg);
@@ -38,5 +36,4 @@ class TimingProfilerTest extends TestCase
             $this->assertEquals($exception->getMessage(), 'www_gsp_ro/asdf');
         }
     }
-
 }

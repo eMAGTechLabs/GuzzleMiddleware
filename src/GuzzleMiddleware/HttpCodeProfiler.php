@@ -5,20 +5,20 @@ namespace EmagTechLabs\GuzzleMiddleware;
 use GuzzleHttp\TransferStats;
 use Psr\Http\Message\RequestInterface;
 use EmagTechLabs\GuzzleMiddleware\Helper\ProfilerHelper;
-use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
+use EmagTechLabs\GuzzleMiddleware\Adapter\StatsDataInterface;
 
 
 class HttpCodeProfiler
 {
     use ProfilerHelper;
 
-    /** @var StatsdDataFactoryInterface */
+    /** @var StatsDataInterface */
     private $statsdService;
 
     /** @var string */
     private $statsdKey;
 
-    public function __construct(StatsdDataFactoryInterface $statsdService)
+    public function __construct(StatsDataInterface $statsdService)
     {
         $this->statsdService = $statsdService;
     }
@@ -43,7 +43,6 @@ class HttpCodeProfiler
     private function startProfiling(TransferStats $stats): void
     {
         $this->statsdService->increment($this->getKey($stats));
-        $this->statsdService->flush();
     }
 
     private function getKey(TransferStats $stats): string
