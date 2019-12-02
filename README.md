@@ -1,6 +1,5 @@
 # Guzzle 6 Middleware
-This is a Guzzle 6 middleware that lets you profile http calls and sends information to statsd.
-
+This is a Guzzle 6 middleware, which allows you to profile an http call, and send information to statsd daemon.
 ## Requirements
 
 ### Dependencies
@@ -21,7 +20,7 @@ composer require "emag-tech-labs/guzzle-middleware"
 ```
 
 ## Usage
-The package is able work with 2 different statsd libraries, illugio or dominikl. Based on you're choice you will have to use the right adapter (DominikAdapter or IlugioAdapter) in order to instatiate the statsd client.  
+The package is able work with 2 different statsd libraries, illugio or dominikl. Based on you're choice you will have to use the right adapter (DominikAdapter or IlugioAdapter) in order to instantiate the statsd client.  
 
 ## Example
 
