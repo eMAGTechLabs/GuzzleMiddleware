@@ -20,7 +20,7 @@ composer require "emag-tech-labs/guzzle-middleware"
 ```
 
 ## Usage
-The package is able work with 2 different statsd libraries, illugio or dominikl. Based on you're choice you will have to use the right adapter (DominikAdapter or IlugioAdapter) in order to instantiate the statsd client.  
+The package is able to work with 2 different statsd libraries, illugio or dominikl. Based on you're choice you will have to use the right adapter (DominikAdapter or IlugioAdapter) in order to instantiate the statsd client.  
 
 ## Example
 
