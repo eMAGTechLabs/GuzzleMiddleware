@@ -25,7 +25,16 @@ class TimingProfiler
     public function __invoke(callable $handler): callable
     {
         return function (RequestInterface $request, array $options) use ($handler) {
-            $options['on_stats'] = function (TransferStats $stats) {
+            $onStats = null;
+            if (isset($options['on_stats']) && is_callable($options['on_stats'])) {
+                $onStats = $options['on_stats'];
+            }
+
+            $options['on_stats'] = function (TransferStats $stats) use ($onStats) {
+                if (is_callable($onStats)) {
+                    $onStats($stats);
+                }
+
                 $this->startProfiling($stats);
             };
 
@@ -46,6 +55,7 @@ class TimingProfiler
 
     private function startProfiling(TransferStats $stats): void
     {
+        $x = $stats->getTransferTime();
         $this->statsdService->timing($this->getKey($stats), $stats->getTransferTime());
     }
 }
