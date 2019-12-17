@@ -25,7 +25,13 @@ class TimingProfiler
     public function __invoke(callable $handler): callable
     {
         return function (RequestInterface $request, array $options) use ($handler) {
-            $options['on_stats'] = function (TransferStats $stats) {
+            $onStats = $options['on_stats'] ?? null;
+
+            $options['on_stats'] = function (TransferStats $stats) use ($onStats) {
+                if (is_callable($onStats)) {
+                    $onStats($stats);
+                }
+
                 $this->startProfiling($stats);
             };
 
