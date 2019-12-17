@@ -55,7 +55,6 @@ class TimingProfiler
 
     private function startProfiling(TransferStats $stats): void
     {
-        $x = $stats->getTransferTime();
         $this->statsdService->timing($this->getKey($stats), $stats->getTransferTime());
     }
 }
