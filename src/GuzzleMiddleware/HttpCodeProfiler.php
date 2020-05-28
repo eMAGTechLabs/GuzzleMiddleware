@@ -54,7 +54,8 @@ class HttpCodeProfiler
     private function getKey(TransferStats $stats): string
     {
         $key = ($this->statsdKey ?? $this->generateKey($stats));
-        $key .= '.' . $stats->getResponse()->getStatusCode();
+        $statusCode = (!empty($stats->getResponse())) ? $stats->getResponse()->getStatusCode() : '';
+        $key .= '.' . $statusCode;
 
         return $key;
     }
