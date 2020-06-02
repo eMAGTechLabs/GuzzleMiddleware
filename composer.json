@@ -12,12 +12,20 @@
     "require": {
         "guzzlehttp/guzzle": "^6.0",
         "liuggio/statsd-php-client": "^1.0",
-        "phpunit/phpunit": "^6.5|^7.0|^8.0",
         "domnikl/statsd": "^2.0|^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5|^7.0|^8.0",
+        "phpstan/phpstan": "^0.12.25"
     },
     "autoload": {
         "psr-4": {
             "EmagTechLabs\\GuzzleMiddleware\\": "src/GuzzleMiddleware"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EmagTechLabs\\Tests\\": "src/Tests"
         }
     }
 }
