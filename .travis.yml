@@ -13,7 +13,7 @@ install:
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install --prefer-dist --no-interaction
   
 script:
-  - vendor/bin/phpunit --coverage-clover=coverage.clover
+  - vendor/bin/phpunit src/Tests --coverage-clover=coverage.clover
   - vendor/bin/phpstan analyse
   
 after_script:
