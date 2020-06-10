@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "php": "^7.2",
         "guzzlehttp/guzzle": "^6.0",
         "liuggio/statsd-php-client": "^1.0",
         "domnikl/statsd": "^2.0|^3.0"
