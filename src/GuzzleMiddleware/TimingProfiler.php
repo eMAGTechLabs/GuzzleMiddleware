@@ -40,7 +40,7 @@ class TimingProfiler
 
     }
 
-    public function setKey($key): void
+    public function setKey(string $key): void
     {
         $this->statsdKey = $key;
     }

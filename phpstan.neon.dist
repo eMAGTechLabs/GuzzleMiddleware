@@ -1,0 +1,9 @@
+parameters:
+    level: max
+    paths:
+        - src/GuzzleMiddleware
+        - src/Tests
+    ignoreErrors:
+        - '#Parameter \#2 \$value of method Domnikl\\Statsd\\Client::set\(\) expects int, float given\.#'
+        - '#Parameter \#2 \$value of method Domnikl\\Statsd\\Client::gauge\(\) expects int\|string, float given\.#'
+        - '#Parameter \#2 \$time of method EmagTechLabs\\GuzzleMiddleware\\Adapter\\StatsDataInterface::timing\(\) expects float, float\|null given\.#'

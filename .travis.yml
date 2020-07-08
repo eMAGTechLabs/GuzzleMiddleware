@@ -1,0 +1,20 @@
+language: php
+
+php:
+  - 7.2
+  - 7.4
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+install:
+  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install --prefer-dist --no-interaction
+  
+script:
+  - vendor/bin/phpunit src/Tests --coverage-clover=coverage.clover
+  - vendor/bin/phpstan analyse
+  
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
