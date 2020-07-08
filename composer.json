@@ -1,7 +1,6 @@
 {
     "name": "emag-tech-labs/guzzle-middleware",
     "description": "Guzzle middlewares",
-    "version": "0.2.9",
     "license": "GPL-3.0-only",
     "authors": [
         {
