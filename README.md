@@ -1,5 +1,5 @@
-# Guzzle 6 Middleware
-This is a Guzzle 6 middleware, which allows you to profile an http call, and send information to statsd daemon.
+# Guzzle Middleware
+This is a Guzzle middleware, which allows you to profile an http call, and send information to statsd daemon.
 ## Requirements
 
 ### Dependencies
@@ -7,7 +7,7 @@ This is a Guzzle 6 middleware, which allows you to profile an http call, and sen
 | Dependency | Version 
 |:--- |:---:|
 | **`php`** | ^7.2 |
-| **`guzzlehttp/guzzle`** | ^6.0 | 
+| **`guzzlehttp/guzzle`** | ^6.0&#124;^7.0 | 
 | **`liuggio/statsd-php-client`** | ^1.0 | 
 | **`domnikl/statsd`** | ^2.0 |
 
