@@ -1,7 +1,6 @@
 {
     "name": "emag-tech-labs/guzzle-middleware",
     "description": "Guzzle middlewares",
-    "version": "0.2.8",
     "license": "GPL-3.0-only",
     "authors": [
         {
@@ -11,7 +10,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "guzzlehttp/guzzle": "^6.0",
+        "guzzlehttp/guzzle": "^6.0|^7.0",
         "liuggio/statsd-php-client": "^1.0",
         "domnikl/statsd": "^2.0|^3.0"
     },
