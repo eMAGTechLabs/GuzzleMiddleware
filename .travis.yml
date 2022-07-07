@@ -15,8 +15,7 @@ install:
 script:
   - vendor/bin/phpunit src/Tests --coverage-clover=coverage.clover
   - vendor/bin/phpstan analyse
-  - vendor/bin/rector process src --dry-run
-  
+
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
