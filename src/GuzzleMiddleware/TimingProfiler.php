@@ -11,11 +11,9 @@ class TimingProfiler
 {
     use ProfilerHelper;
 
-    /** @var StatsDataInterface */
-    private $statsdService;
+    private \EmagTechLabs\GuzzleMiddleware\Adapter\StatsDataInterface $statsdService;
 
-    /** @var string */
-    private $statsdKey;
+    private ?string $statsdKey = null;
 
     public function __construct(StatsDataInterface $statsdService)
     {

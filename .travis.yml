@@ -3,6 +3,7 @@ language: php
 php:
   - 7.2
   - 7.4
+  - 8.1
 
 cache:
   directories:
@@ -14,6 +15,7 @@ install:
 script:
   - vendor/bin/phpunit src/Tests --coverage-clover=coverage.clover
   - vendor/bin/phpstan analyse
+  - vendor/bin/rector process src --dry-run
   
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
