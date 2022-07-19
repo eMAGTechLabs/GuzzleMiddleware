@@ -10,11 +10,10 @@ jobs:
       matrix:
         php-version: ['7.2','8.1']
         coverage: ['none']
+        phpunit-versions: [ 'latest' ]
         include:
           - php-version: '7.2'
-            coverage: xdebug
           - php: "8.1"
-            coverage: xdebug
             php-version: "8.1"
     steps:
       - name: Checkout
@@ -24,10 +23,10 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           coverage: ${{ matrix.coverage }}
-          ini-values: "memory_limit=-1"
+          ini-values: memory_limit=-1, post_max_size=256M, max_execution_time=180
           php-version: ${{ matrix.php-version }}
-          extensions: gearman
-          tools: composer,flex
+          extensions: gearman, mbstring, intl
+          tools: composer
 
       - name: Validate composer.json
         run: composer validate --no-check-lock
