@@ -6,7 +6,7 @@ This is a Guzzle middleware, which allows you to profile an http call, and send 
 
 | Dependency | Version 
 |:--- |:---:|
-| **`php`** | ^7.2 &#124; ^8.1 |
+| **`php`** | ^7.2 |
 | **`guzzlehttp/guzzle`** | ^6.0 &#124; ^7.0 | 
 | **`liuggio/statsd-php-client`** | ^1.0 | 
 | **`domnikl/statsd`** | ^2.0 |
