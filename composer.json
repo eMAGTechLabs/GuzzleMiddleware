@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.2 | ^8.1",
         "guzzlehttp/guzzle": "^6.0|^7.0",
         "liuggio/statsd-php-client": "^1.0",
         "domnikl/statsd": "^2.0|^3.0"
