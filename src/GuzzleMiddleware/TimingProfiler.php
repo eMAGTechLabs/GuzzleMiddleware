@@ -11,7 +11,7 @@ class TimingProfiler
 {
     use ProfilerHelper;
 
-    private \EmagTechLabs\GuzzleMiddleware\Adapter\StatsDataInterface $statsdService;
+    private StatsDataInterface $statsdService;
 
     private ?string $statsdKey = null;
 

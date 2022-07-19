@@ -6,7 +6,7 @@ use Liuggio\StatsdClient\Service\StatsdService;
 
 class IlugioAdapter implements StatsDataInterface
 {
-    private \Liuggio\StatsdClient\Service\StatsdService $illugioService;
+    private StatsdService $illugioService;
 
     public function __construct(StatsdService $illugioService)
     {

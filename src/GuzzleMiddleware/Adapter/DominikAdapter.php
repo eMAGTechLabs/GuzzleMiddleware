@@ -6,7 +6,7 @@ use Domnikl\Statsd\Client;
 
 class DominikAdapter implements StatsDataInterface
 {
-    private \Domnikl\Statsd\Client $statsdClient;
+    private Client $statsdClient;
 
     public function __construct(Client $statsdClient)
     {
