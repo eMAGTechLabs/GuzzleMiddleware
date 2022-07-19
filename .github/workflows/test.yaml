@@ -44,11 +44,11 @@ jobs:
 
       - name: Run PHPUnit
         if: matrix.coverage == 'none'
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit src/Tests --no-coverage
 
       - name: Run PHPUnit with coverage
         if: matrix.coverage != 'none'
-        run: vendor/bin/phpunit --coverage-clover=coverage.clover
+        run: vendor/bin/phpunit src/Tests --coverage-clover=coverage.clover
 
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse
