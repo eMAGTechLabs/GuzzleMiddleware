@@ -15,8 +15,8 @@ class HttpCodeProfiler
     /** @var StatsDataInterface */
     private $statsdService;
 
-    /** @var string */
-    private $statsdKey;
+    /** @var string|null */
+    private $statsdKey = null;
 
     public function __construct(StatsDataInterface $statsdService)
     {
@@ -54,9 +54,8 @@ class HttpCodeProfiler
     private function getKey(TransferStats $stats): string
     {
         $key = ($this->statsdKey ?? $this->generateKey($stats));
-        $statusCode = (!empty($stats->getResponse())) ? $stats->getResponse()->getStatusCode() : '';
-        $key .= '.' . $statusCode;
+        $statusCode = (empty($stats->getResponse())) ? '' : $stats->getResponse()->getStatusCode();
 
-        return $key;
+        return $key . ('.' . $statusCode);
     }
 }

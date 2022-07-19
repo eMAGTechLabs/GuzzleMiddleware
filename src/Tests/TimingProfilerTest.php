@@ -1,7 +1,6 @@
 <?php
 namespace EmagTechLabs\Tests;
 
-
 use EmagTechLabs\GuzzleMiddleware\Adapter\StatsDataInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
