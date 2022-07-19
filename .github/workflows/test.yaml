@@ -8,19 +8,13 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        php-version: ['7.2','7.4','8.0','8.1']
+        php-version: ['7.2','8.1']
         symfony-version: ['4.4','5.4']
         coverage: ['none']
         include:
           - php-version: '7.2'
             symfony-version: '4.4'
             coverage: xdebug
-          - php-version: '7.4'
-            symfony-version: '4.4'
-            coverage: xdebug
-          - php: "8.0"
-            php-version: "8.0"
-            symfony-version: "6.0"
           - php: "8.1"
             php-version: "8.1"
             symfony-version: "6.0"
