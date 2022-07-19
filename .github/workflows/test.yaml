@@ -4,20 +4,17 @@ on: [push, pull_request]
 
 jobs:
   test:
-    name: PHP ${{ matrix.php-version }} + Symfony ${{ matrix.symfony-version }}
+    name: PHP ${{ matrix.php-version }}
     runs-on: ubuntu-18.04
     strategy:
       matrix:
         php-version: ['7.2','8.1']
-        symfony-version: ['4.4','5.4']
         coverage: ['none']
         include:
           - php-version: '7.2'
-            symfony-version: '4.4'
             coverage: xdebug
           - php: "8.1"
             php-version: "8.1"
-            symfony-version: "6.0"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -38,8 +35,6 @@ jobs:
         uses: ramsey/composer-install@v1
         with:
           composer-options: "--prefer-dist"
-        env:
-          SYMFONY_REQUIRE: "${{ matrix.symfony-version }}.*"
 
       - name: Setup problem matchers for PHP
         run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
