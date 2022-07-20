@@ -14,8 +14,8 @@ class TimingProfiler
     /** @var StatsDataInterface */
     private $statsdService;
 
-    /** @var string */
-    private $statsdKey;
+    /** @var string|null */
+    private $statsdKey = null;
 
     public function __construct(StatsDataInterface $statsdService)
     {
